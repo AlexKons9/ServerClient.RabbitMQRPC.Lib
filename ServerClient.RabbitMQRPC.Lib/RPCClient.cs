@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 
 namespace ServerClient.RabbitMQRPC.Lib
 {
+    // This class represents an RPC client that sends requests to the RabbitMQ server
+    // and waits for responses.
     public class RPCClient : IRPCClient, IDisposable
     {
         private readonly IConnection _connection;

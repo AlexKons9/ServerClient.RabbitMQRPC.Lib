@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 
 namespace ServerClient.RabbitMQRPC.Lib
 {
+    // This class represents an RPC server that listens for incoming requests,
+    // processes them, and sends back responses.
     public class RPCServer
     {
         private readonly IConnection _connection;
@@ -86,7 +88,7 @@ namespace ServerClient.RabbitMQRPC.Lib
         }
 
 
-
+        // This method processes a request and returns a response.
         private object ProcessRequest(RequestHandler<object> requestHandler)
         {
             // Find the appropriate IRequestProcessor based on the request type
@@ -116,7 +118,7 @@ namespace ServerClient.RabbitMQRPC.Lib
             }
         }
 
-
+        // This method finds the appropriate request processor for the given request type.
         private IRequestProcessor FindRequestProcessor(TypeOfRequest requestType)
         {
             try
