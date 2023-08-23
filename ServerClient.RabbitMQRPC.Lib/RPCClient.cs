@@ -17,11 +17,10 @@ namespace ServerClient.RabbitMQRPC.Lib
         private readonly EventingBasicConsumer _consumer;
         private TaskCompletionSource<string> _responseReceived;
 
+        // This class represents an RPC client that sends requests to the RabbitMQ server
+        // and waits for responses.
         public RPCClient(IConnectionProvider connectionProvider)
         {
-            // URI 
-            // "amqp://guest:guest@localhost:5672"
-
             _connectionProvider = connectionProvider;
 
             // Establish a connection to RabbitMQ using the connection provider
@@ -55,6 +54,7 @@ namespace ServerClient.RabbitMQRPC.Lib
             };
         }
 
+        // This method sends a request to the server and waits for a response.
         public string SendRequest(object request)
         {
             // Generate a unique correlation ID for the request
